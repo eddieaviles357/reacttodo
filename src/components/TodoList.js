@@ -1,13 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import NewTodoForm from './NewTodoForm';
+import Todo from './Todo';
 
-// this component should render the NewTodoForm component 
-// and should render the list of Todo components. 
-// Place your state that contains all of the todos in this component.
 export default function TodoList() {
+    const [todos, setTodos] = useState([]);
+    
+    const removeTodo = (evt) => {
+        evt.preventDefault();
+        const {id} = evt.target;
+
+        setTodos( todo => todo.filter( td => td.id !== id));
+    };
+
     return(
         <div className='Todo-container'>
-            <NewTodoForm />
+            <NewTodoForm setTodo={setTodos}/>
+            <ul>
+            {
+                todos.map( ({id, todo}) => <Todo key={id} id={id} todo={todo} removeTodo={removeTodo}/>)
+            }
+            </ul>
         </div>
     )
-}
+};
