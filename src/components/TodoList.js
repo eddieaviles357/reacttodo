@@ -6,7 +6,7 @@ import NewTodoForm from './NewTodoForm';
 // Place your state that contains all of the todos in this component.
 export default function TodoList() {
     return(
-        <div>
+        <div className='Todo-container'>
             <NewTodoForm />
         </div>
     )
