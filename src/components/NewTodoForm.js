@@ -34,6 +34,7 @@ export default function NewTodoForm({setTodo}) {
                 type="text" 
                 onChange={formHandler}
                 value={formData.todo}/>
+            <button>Add Todo</button>
         </form>
     )
 }
